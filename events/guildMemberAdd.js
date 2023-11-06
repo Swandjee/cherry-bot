@@ -3,7 +3,7 @@ const { Events } = require('discord.js');
 module.exports = {
   name: Events.GuildMemberAdd,
   execute(client, member) {
-    console.log(`Ready! Logged in as ${client.username}. Parameters: client: ${client} , member: ${member}`);
+    console.log(`Guild member has arrived. Parameters: client: ${client} , member: ${member}`);
 
     const guildResponseHandle = (event, myself, _member, guild) => {
       const object = {

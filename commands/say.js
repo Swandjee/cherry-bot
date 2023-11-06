@@ -3,19 +3,18 @@ const checkIfOwner = require("../helpers/checkIfOwner.js");
 const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
-  data: new SlashCommandBuilder().setName("say").setDescription("Make me say something!"),
+  data: new SlashCommandBuilder()
+    .setName("say")
+    .setDescription("Send a message.")
+    .addStringOption((option) =>
+      option.setName("content").setDescription("Content of the message.").setRequired(true)
+    ),
   async execute(interaction) {
-    var result = getRandomInt(2);
-    var stringifiedResult = result == 0 ? "Heads" : "Tails";
-    const embed = new EmbedBuilder()
-      .setColor(0x0099ff)
-      .setTitle(stringifiedResult)
-      .setImage(result == 0 ? HEADS_IMG : TAILS_IMG)
-      .setTimestamp(Date.now());
-    console.log(`TEST: ${embed} (${result} , ${HEADS_IMG} ${TAILS_IMG} ${stringifiedResult})`);
-    return await interaction.reply({
-      content: " ",
-      embeds: [embed],
-    });
-  },
-};
+    const message = interaction.options.getString("content");
+    //console.log({message});
+   //interaction
+    interaction.channel.send({content: message});
+    return interaction.reply({content: " ", ephemeral: true});
+    
+  }
+}

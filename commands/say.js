@@ -1,3 +1,7 @@
+const { SlashCommandBuilder } = require("@discordjs/builders");
+const checkIfOwner = require("../helpers/checkIfOwner.js");
+const { EmbedBuilder } = require("discord.js");
+
 module.exports = {
   data: new SlashCommandBuilder().setName("say").setDescription("Make me say something!"),
   async execute(interaction) {

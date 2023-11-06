@@ -2,8 +2,8 @@ const { Events } = require('discord.js');
 
 module.exports = {
   name: Events.GuildMemberRemove,
-  execute(client, guild_id, user) {
-    console.log(`Guild member is gone. Parameters: client: ${client} , member: ${user}, guild: ${client.user}`);
+  execute(guildMember) {
+    console.log(`Guild member is gone. Parameters: client: ${guildMember} , member: ${guildMember.user}`);
 
     const guildResponseHandle = (event, myself, _member, guild) => {
       const object = {

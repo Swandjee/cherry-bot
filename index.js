@@ -14,7 +14,6 @@ const { Routes } = require("discord-api-types/v10");
 const { clientIDTest, guildsTest } = require("./config.json");
 
 client.commands = new Collection();
-console.log(`LOG: ${process.env.DEV_MARASCHINO}`);
 const eventFiles = fs
   .readdirSync("./events")
   .filter((file) => file.endsWith(".js"));
@@ -44,10 +43,7 @@ async function registerActions() {
           body: _commands,
         });
       });
-      /*await rest.put(
-        Routes.applicationCommands(clientID),
-        { body: _commands },
-      );*/
+
       console.log("Successfully reloaded application (/) commands.");
     } catch (error) {
       console.error(error);

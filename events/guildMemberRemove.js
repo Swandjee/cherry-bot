@@ -1,7 +1,7 @@
 const { Events } = require('discord.js');
 
 module.exports = {
-  name: Events.GuildMemberAdd,
+  name: Events.GuildMemberRemove,
   execute(client, member) {
     console.log(`Ready! Logged in as ${client.username}. Parameters: client: ${client} , member: ${member}`);
 

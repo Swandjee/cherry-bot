@@ -14,7 +14,7 @@ module.exports = {
     //console.log({message});
    //interaction
     interaction.channel.send({content: message});
-    return interaction.reply({content: " ", ephemeral: true});
+    return interaction.reply({content: ".", ephemeral: true});
     
   }
 }

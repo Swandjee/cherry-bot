@@ -4,14 +4,19 @@ module.exports = {
 	name: Events.InteractionCreate,
 	async execute(interaction) {
 		if (interaction.isStringSelectMenu()) {
-			if (interaction.customId === 'roleSelect') {
-				const status = interaction.values[0];
-				await interaction.reply({
-					content: `Added role ${status}`,
-					ephemeral: true,
-				});
+			const SelectMenu = interaction.client.commands.get(interaction.customId);
+			try {
+				await SelectMenu.execute(interaction);
 			}
-			return;
+			catch (error) {
+				console.error(error);
+				if (interaction.replied || interaction.deferred) {
+					await interaction.followUp({ content: 'There was an error while executing this SelectMenu response!', ephemeral: true });
+				}
+				else {
+					await interaction.reply({ content: 'There was an error while executing this SelectMenu response!', ephemeral: true });
+				}
+			}
 		}
 		if (!interaction.isChatInputCommand()) return;
 

@@ -38,7 +38,7 @@ async function registerActions() {
 		_commands.push(command.data.toJSON());
 	}
 
-	const rest = new REST({ version: '10' }).setToken(process.env.DEV_MARASCHINO_TOKEN);
+	const rest = new REST({ version: '10' }).setToken(process.env.DEV_TOKEN);
 	(async () => {
 		try {
 			console.log('Started refreshing application (/) commands.');
@@ -66,4 +66,4 @@ for (const file of eventFiles) {
 	}
 }
 
-registerActions().then(() => client.login(process.env.DEV_MARASCHINO_TOKEN));
+registerActions().then(() => client.login(process.env.DEV_TOKEN));

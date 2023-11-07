@@ -20,9 +20,6 @@ module.exports = {
 			return;
 		}
 
-		console.log('Role to add or remove: ' + roleToAddOrRemove);
-		console.log('Role found: ' + member.roles.cache.get(roleId));
-
 		const memberRole = member.roles.cache.get(roleId);
 
 		if (!_.isNil(memberRole)) {
@@ -48,8 +45,7 @@ module.exports = {
 const returnRoleId = (value) => {
 	switch (value) {
 	case 'nsfw1':
-		// return '388348197866700800';
-		return '1171160567768162334';
+		return '388348197866700800';
 
 	case 'nsfw2':
 		return '523022272223510549';

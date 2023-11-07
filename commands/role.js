@@ -3,14 +3,12 @@ const { ActionRowBuilder, StringSelectMenuBuilder, StringSelectMenuOptionBuilder
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('role')
-		.setDescription('Add yourself (or remove) a role.'),
+		.setDescription('Add (or remove) yourself a role.'),
 	async execute(interaction) {
 
 		const select = new StringSelectMenuBuilder()
 			.setCustomId('roleSelect')
 			.setPlaceholder('Select a role.')
-			.setMinValues(1)
-			.setMaxValues(5)
 			.addOptions(
 				new StringSelectMenuOptionBuilder()
 					.setLabel('NSFW Lv.1')
@@ -33,23 +31,7 @@ module.exports = {
 					.setDescription('To gain voice access on the stream channel.')
 					.setValue('voice'),
 			);
-		/* case 'nsfw1':
-      return '388348197866700800';
 
-    case 'nsfw2':
-      return '523022272223510549';
-
-    case 'art':
-      return '237919832798920704';
-
-    case 'sl':
-      return '397674427531264001';
-
-    case 'rp':
-      return '237920775515013130';
-
-    case 'voice':
-      return '378161910253617162';*/
 		const row = new ActionRowBuilder()
 			.addComponents(select);
 

@@ -9,6 +9,8 @@ module.exports = {
 		const select = new StringSelectMenuBuilder()
 			.setCustomId('roleSelect')
 			.setPlaceholder('Select a role.')
+			.setMinValues(1)
+			.setMaxValues(5)
 			.addOptions(
 				new StringSelectMenuOptionBuilder()
 					.setLabel('NSFW Lv.1')

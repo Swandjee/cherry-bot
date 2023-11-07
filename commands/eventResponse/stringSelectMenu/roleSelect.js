@@ -17,6 +17,7 @@ module.exports = {
 				content: 'Could not find the mentioned role.',
 				ephemeral: true,
 			});
+			return;
 		}
 
 		console.log('Role to add or remove: ' + roleToAddOrRemove);
@@ -24,7 +25,7 @@ module.exports = {
 
 		const memberRole = member.roles.cache.get(roleId);
 
-		if (memberRole !== undefined) {
+		if (!_.isNil(memberRole)) {
 			member.roles.remove(roleToAddOrRemove);
 		}
 		else {

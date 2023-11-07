@@ -50,11 +50,9 @@ module.exports = {
 				)
 				.setFooter({ text: `Developed by ${dev.username}`, iconURL: myself.displayAvatarURL() });
 			const object = {
-				body: {
-					content: `Hello <@${_member.id}> (${_member.username}), welcome to ${guild.name} !
+				content: `Hello <@${_member.id}> (${_member.username}), welcome to ${guild.name} !
   Make yourself acquainted with the rules below, and use the \`/role\` command in the <#${commandChannel_id}> channel to assign yourself a role.`,
-					embed: [embed],
-				},
+				embeds: [embed],
 			};
 			return object;
 		};

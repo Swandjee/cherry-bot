@@ -3,7 +3,19 @@ const { Events } = require('discord.js');
 module.exports = {
 	name: Events.InteractionCreate,
 	async execute(interaction) {
-        console.log({ interaction });
+		if (interaction.isStringSelectMenu()) {
+			console.log({ interaction });
+			if (interaction.customId === 'roleSelect') {
+				const status = interaction.values[0];
+
+				await interaction.reply({
+					content: `Status updated to _"${status}"_`,
+					components: [],
+					ephemeral: true,
+				});
+			}
+			return;
+		}
 		if (!interaction.isChatInputCommand()) return;
 
 		const command = interaction.client.commands.get(interaction.commandName);
@@ -14,19 +26,6 @@ module.exports = {
 		}
 
 		try {
-			if (interaction.isStringSelectMenu()) {
-				console.log({ interaction });
-				if (interaction.customId === 'roleSelect') {
-					const status = interaction.values[0];
-
-					await interaction.reply({
-						content: `Status updated to _"${status}"_`,
-						components: [],
-						ephemeral: true,
-					});
-				}
-				return;
-			}
 			await command.execute(interaction);
 		}
 		catch (error) {

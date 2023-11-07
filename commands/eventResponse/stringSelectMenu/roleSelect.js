@@ -10,13 +10,14 @@ module.exports = {
 
 		console.log(member.roles.cache.get(roleId));
 
-		const role = member.roles.cache.get(roleId);
+		const memberRole = member.roles.cache.get(roleId);
 
-		if (role !== undefined) {
-			member.roles.remove(role);
+		if (memberRole !== undefined) {
+			member.roles.remove(memberRole);
 		}
 		else {
-			member.roles.add(roleId);
+			const roleToAdd = interaction.guild.roles.cache.get(roleId);
+			member.roles.add(roleToAdd);
 		}
 
 		if (interaction.replied || interaction.deferred) {

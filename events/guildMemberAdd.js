@@ -48,7 +48,6 @@ module.exports = {
 						value: 'Have fun !',
 					},
 				)
-				.setAuthor(myself.displayAvatarURL())
 				.setFooter({ text: `Developed by ${dev.username}`, iconURL: myself.displayAvatarURL() });
 			const object = {
 				content: `Hello <@${_member.id}> (${_member.username}), welcome to ${guild.name} !

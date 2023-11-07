@@ -8,9 +8,7 @@ module.exports = {
 
 		const member = interaction.member;
 
-		console.log(member.roles.cache.get(roleMention));
-
-		console.log(member.roles);
+		console.log(member.roles.cache.find(role => role.id === roleMention.id));
 
 		if (interaction.replied || interaction.deferred) {
 			await interaction.followUp({ content: `Added role ${roleMention}`,

@@ -8,6 +8,8 @@ module.exports = {
 
 		const member = interaction.member;
 
+		console.log(member.roles.cache.get(roleMention));
+
 		console.log(member.roles);
 
 		if (interaction.replied || interaction.deferred) {
@@ -26,7 +28,8 @@ module.exports = {
 const returnRoleId = (value) => {
 	switch (value) {
 	case 'nsfw1':
-		return '388348197866700800';
+		//return '388348197866700800';
+		return '1171160567768162334';
 
 	case 'nsfw2':
 		return '523022272223510549';

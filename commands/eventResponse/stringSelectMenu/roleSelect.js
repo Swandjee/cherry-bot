@@ -8,6 +8,7 @@ module.exports = {
 
 		const member = interaction.member;
 
+		console.log(member.roles.cache.each(role => console.log(role)));
 		console.log(member.roles.cache.find(role => role.id === roleMention.id));
 
 		if (interaction.replied || interaction.deferred) {

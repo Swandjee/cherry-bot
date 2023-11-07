@@ -6,7 +6,7 @@ module.exports = {
 		const roleId = returnRoleId(roleTag);
 		const roleMention = `<@&${returnRoleId(roleTag)}>`;
 
-		const roleToAddOrRemove = interaction.guild.roles.cache.get(roleId);
+		const roleToAddOrRemove = interaction.guild.roles.fetch(roleId);
 
 		const member = interaction.member;
 

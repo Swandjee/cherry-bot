@@ -18,7 +18,7 @@ module.exports = {
 				.setTimestamp(Date.now())
 				.setAuthor({
 					name: `${myself.username}`,
-					iconUrl: `${myself.displayAvatarURL()}`,
+					iconURL: myself.displayAvatarURL(),
 				})
 				.setDescription('Make sure to get acquainted with these first !')
 				.setThumbnail(`${guild.iconURL()}`)

@@ -4,11 +4,10 @@ module.exports = {
 	name: Events.InteractionCreate,
 	async execute(interaction) {
 		if (interaction.isStringSelectMenu()) {
-			console.log({ interaction });
 			if (interaction.customId === 'roleSelect') {
 				const status = interaction.values[0];
 
-				await interaction.reply({
+				await interaction.editReply({
 					content: `Status updated to _"${status}"_`,
 					components: [],
 					ephemeral: true,

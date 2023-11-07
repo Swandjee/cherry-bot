@@ -6,8 +6,6 @@ module.exports = {
 	name: Events.GuildMemberAdd,
 	async execute(guildMember, client) {
 		console.log(`Guild member has arrived. Parameters: client: ${guildMember} , member: ${guildMember.user}, guild= ${client.user.tag}`);
-
-		const commandChannel_id = 574221264722329631;
 		const channel = client.channels.cache.get(guildMember.guild.systemChannelId);
 		const dev = client.users.cache.get(devID);
 
@@ -51,7 +49,7 @@ module.exports = {
 				.setFooter({ text: `Developed by ${dev.username}`, iconURL: myself.displayAvatarURL() });
 			const object = {
 				content: `Hello <@${_member.id}> (${_member.username}), welcome to ${guild.name} !
-  Make yourself acquainted with the rules below, and use the \`/role\` command in the <#${commandChannel_id}> channel to assign yourself a role.`,
+  Make yourself acquainted with the rules below, and use the \`/role\` command to assign yourself a role.`,
 				embeds: [embed],
 			};
 			return object;

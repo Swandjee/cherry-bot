@@ -1,6 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('@discordjs/builders');
 const checkIfOwner = require('../helpers/checkIfOwner');
-const commandChannel_id = 574221264722329631;
 const { devID } = require('../config.json');
 
 module.exports = {
@@ -13,7 +12,6 @@ module.exports = {
 	async execute(interaction) {
 		if (!checkIfOwner(interaction)) return interaction.reply({ content: 'You do not have the necessary permission to use this command.', ephemeral: true });
 		const client = interaction.client;
-		//const channel = client.channels.cache.get(interaction.guild.systemChannelId);
 		const dev = client.users.cache.get(devID);
 		const myself = client.user;
 		const user = interaction.options.getUser('user');
@@ -63,7 +61,7 @@ const guildResponseHandle = (myself, _member, guild, dev) => {
 		.setFooter({ text: `Developed by ${dev.username}`, iconURL: myself.displayAvatarURL() });
 	const object = {
 		content: `Hello <@${_member.id}> (${_member.username}), welcome to ${guild.name} !
-Make yourself acquainted with the rules below, and use the \`/role\` command in the <#${commandChannel_id}> channel to assign yourself a role.`,
+Make yourself acquainted with the rules below, and use the \`/role\` command to assign yourself a role.`,
 		embeds: [embed],
 	};
 	return object;

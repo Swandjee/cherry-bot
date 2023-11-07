@@ -3,13 +3,13 @@ module.exports = {
 	async execute(interaction) {
 
 		const roleTag = interaction.values[0];
-
+		const roleId = returnRoleId(roleTag);
 		const roleMention = `<@&${returnRoleId(roleTag)}>`;
 
 		const member = interaction.member;
 
 		console.log(member.roles.cache.each(role => console.log(role)));
-		console.log(member.roles.cache.find(role => role.id === roleMention.id));
+		console.log(member.roles.cache.get(roleId));
 
 		if (interaction.replied || interaction.deferred) {
 			await interaction.followUp({ content: `Added role ${roleMention}`,

@@ -6,12 +6,8 @@ module.exports = {
 		if (interaction.isStringSelectMenu()) {
 			if (interaction.customId === 'roleSelect') {
 				const status = interaction.values[0];
-				await interaction.deferReply({
-					fetchReply: true,
-				});
-				await interaction.editReply({
-					content: `Status updated to _"${status}"_`,
-					components: [],
+				await interaction.reply({
+					content: `Added role ${status}`,
 					ephemeral: true,
 				});
 			}

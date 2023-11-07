@@ -1,20 +1,16 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const checkIfOwner = require("../helpers/checkIfOwner.js");
-const { EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName("say")
-    .setDescription("Send a message.")
-    .addStringOption((option) =>
-      option.setName("content").setDescription("Content of the message.").setRequired(true)
-    ),
-  async execute(interaction) {
-    const message = interaction.options.getString("content");
-    //console.log({message});
-   //interaction
-    interaction.channel.send({content: message});
-    return interaction.reply({content: ".", ephemeral: true});
-    
-  }
-}
+	data: new SlashCommandBuilder()
+		.setName('say')
+		.setDescription('Send a message.')
+		.addStringOption((option) =>
+			option.setName('content').setDescription('Content of the message.').setRequired(true),
+		),
+	async execute(interaction) {
+		const message = interaction.options.getString('content');
+		interaction.channel.send({ content: message });
+		return interaction.reply({ content: '.', ephemeral: true });
+
+	},
+};

@@ -16,7 +16,7 @@ module.exports = {
 		const myself = client.user;
 		const user = interaction.options.getUser('user');
 		const body = guildResponseHandle(myself, user, interaction.guild, dev);
-		return interaction.reply({ ...body, ephemeral: true });
+		return interaction.reply({ ...body });
 
 	},
 };

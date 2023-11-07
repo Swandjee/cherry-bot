@@ -10,6 +10,13 @@ module.exports = {
 
 		const member = interaction.member;
 
+		if (roleToAddOrRemove === undefined) {
+			await interaction.reply({
+				content: 'Could not find the mentioned role.',
+				ephemeral: true,
+			});
+		}
+
 		console.log(roleToAddOrRemove);
 		console.log(member.roles.cache.get(roleId));
 

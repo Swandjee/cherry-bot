@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 module.exports = {
 	data: { name: 'roleSelect' },
 	async execute(interaction) {
@@ -10,7 +12,7 @@ module.exports = {
 
 		const member = interaction.member;
 
-		if (roleToAddOrRemove === undefined) {
+		if (_.isNil(roleToAddOrRemove)) {
 			await interaction.reply({
 				content: 'Could not find the mentioned role.',
 				ephemeral: true,

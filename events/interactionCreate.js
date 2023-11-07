@@ -4,6 +4,7 @@ module.exports = {
 	name: Events.InteractionCreate,
 	async execute(interaction) {
 		if (interaction.isStringSelectMenu()) {
+			interaction.client.commands.each(cmd => console.log(cmd.data.name));
 			const SelectMenu = interaction.client.commands.get(interaction.customId);
 			try {
 				await SelectMenu.execute(interaction);

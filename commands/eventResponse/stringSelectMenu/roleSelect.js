@@ -6,18 +6,20 @@ module.exports = {
 		const roleId = returnRoleId(roleTag);
 		const roleMention = `<@&${returnRoleId(roleTag)}>`;
 
+		const roleToAddOrRemove = interaction.guild.roles.cache.get(roleId);
+
 		const member = interaction.member;
 
+		console.log(roleToAddOrRemove);
 		console.log(member.roles.cache.get(roleId));
 
 		const memberRole = member.roles.cache.get(roleId);
 
 		if (memberRole !== undefined) {
-			member.roles.remove(memberRole);
+			member.roles.remove(roleToAddOrRemove);
 		}
 		else {
-			const roleToAdd = interaction.guild.roles.cache.get(roleId);
-			member.roles.add(roleToAdd);
+			member.roles.add(roleToAddOrRemove);
 		}
 
 		if (interaction.replied || interaction.deferred) {

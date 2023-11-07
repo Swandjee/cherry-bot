@@ -10,6 +10,15 @@ module.exports = {
 
 		console.log(member.roles.cache.get(roleId));
 
+		const role = member.roles.cache.get(roleId);
+
+		if (role !== undefined) {
+			member.roles.remove(role);
+		}
+		else {
+			member.roles.add(roleId);
+		}
+
 		if (interaction.replied || interaction.deferred) {
 			await interaction.followUp({ content: `Added role ${roleMention}`,
 				ephemeral: true });
@@ -26,7 +35,7 @@ module.exports = {
 const returnRoleId = (value) => {
 	switch (value) {
 	case 'nsfw1':
-		//return '388348197866700800';
+		// return '388348197866700800';
 		return '1171160567768162334';
 
 	case 'nsfw2':

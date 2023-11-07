@@ -24,7 +24,7 @@ module.exports = {
 					.setValue('art'),
 				new StringSelectMenuOptionBuilder()
 					.setLabel('RP')
-					.setDescription('For roleplay enthusiast. Reminder: this is not an RP server, but discussion about it is welcome.')
+					.setDescription('For roleplay enthusiast. Reminder: this is not an RP server.')
 					.setValue('rp'),
 				new StringSelectMenuOptionBuilder()
 					.setLabel('Voice Access')

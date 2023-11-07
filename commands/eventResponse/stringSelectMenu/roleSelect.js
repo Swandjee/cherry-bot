@@ -1,7 +1,5 @@
-const { Events } = require('discord.js');
-
 module.exports = {
-	name: 'roleSelect',
+	data: { name: 'roleSelect' },
 	async execute(interaction) {
 
 		const status = interaction.values[0];

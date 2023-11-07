@@ -13,16 +13,18 @@ module.exports = {
 		}
 
 		try {
-			if (interaction.isSelectMenu()) {
+			if (interaction.isStringSelectMenu()) {
+				console.log({ interaction });
 				if (interaction.customId === 'roleSelect') {
 					const status = interaction.values[0];
 
-					await interaction.editReply({
+					await interaction.reply({
 						content: `Status updated to _"${status}"_`,
 						components: [],
 						ephemeral: true,
 					});
 				}
+				return;
 			}
 			await command.execute(interaction);
 		}

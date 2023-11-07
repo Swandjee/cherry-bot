@@ -13,7 +13,7 @@ module.exports = {
 
 		const guildResponseHandle = (myself, _member, guild) => {
 			const embed = new EmbedBuilder()
-				.setColor(0x14949522)
+				.setColor(0x149495)
 				.setTitle('Rules')
 				.setTimestamp(Date.now())
 				.setAuthor({

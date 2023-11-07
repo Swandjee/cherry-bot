@@ -11,7 +11,7 @@ const client = new Client({
 });
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
-const { clientIDTest, guildsTest } = require('./config.json');
+const { clientID, guilds } = require('./config.json');
 
 client.commands = new Collection();
 const eventFiles = fs
@@ -42,8 +42,8 @@ async function registerActions() {
 	(async () => {
 		try {
 			console.log('Started refreshing application (/) commands.');
-			await guildsTest.map(async (guild) => {
-				await rest.put(Routes.applicationGuildCommands(clientIDTest, guild), {
+			await guilds.map(async (guild) => {
+				await rest.put(Routes.applicationGuildCommands(clientID, guild), {
 					body: _commands,
 				});
 			});

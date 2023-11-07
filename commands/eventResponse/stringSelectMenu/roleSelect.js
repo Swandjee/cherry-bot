@@ -10,7 +10,7 @@ module.exports = {
 
 		console.log(member.roles.cache.get(roleId));
 
-		const role = member.roles.cache.get(roleId);
+		const role = member.roles.get(roleId);
 
 		if (role !== undefined) {
 			member.roles.remove(role);

@@ -24,22 +24,26 @@ module.exports = {
 
 		if (!_.isNil(memberRole)) {
 			member.roles.remove(roleToAddOrRemove);
+			await replyToInteraction(interaction, 'Removed', roleMention);
 		}
 		else {
 			member.roles.add(roleToAddOrRemove);
-		}
-
-		if (interaction.replied || interaction.deferred) {
-			await interaction.followUp({ content: `Added role ${roleMention}`,
-				ephemeral: true });
-		}
-		else {
-			await interaction.reply({
-				content: `Added role ${roleMention}`,
-				ephemeral: true,
-			});
+			await replyToInteraction(interaction, 'Added', roleMention);
 		}
 	},
+};
+
+const replyToInteraction = async (interaction, action, roleMention) => {
+	if (interaction.replied || interaction.deferred) {
+		await interaction.followUp({ content: `${action} role ${roleMention}`,
+			ephemeral: true });
+	}
+	else {
+		await interaction.reply({
+			content: `${action} role ${roleMention}`,
+			ephemeral: true,
+		});
+	}
 };
 
 const returnRoleId = (value) => {

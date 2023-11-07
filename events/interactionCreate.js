@@ -13,6 +13,17 @@ module.exports = {
 		}
 
 		try {
+			if (interaction.isSelectMenu()) {
+				if (interaction.customId === 'roleSelect') {
+					const status = interaction.values[0];
+
+					await interaction.editReply({
+						content: `Status updated to _"${status}"_`,
+						components: [],
+						ephemeral: true,
+					});
+				}
+			}
 			await command.execute(interaction);
 		}
 		catch (error) {

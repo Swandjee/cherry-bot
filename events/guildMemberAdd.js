@@ -6,7 +6,7 @@ module.exports = {
     console.log(`Guild member has arrived. Parameters: client: ${guildMember} , member: ${guildMember.user}, guild= ${client.user.tag}`);
 
     const commandChannel_id = 574221264722329631;
-    const channel = client.channels.cache.get(guild.systemChannelId);
+    const channel = client.channels.cache.get(guildMember.guild.systemChannelId);
     const dev = client.users.cache.get(devID);
 
     const guildResponseHandle = (myself, _member, guild) => {

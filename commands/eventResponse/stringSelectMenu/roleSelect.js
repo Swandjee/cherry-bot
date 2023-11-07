@@ -17,8 +17,8 @@ module.exports = {
 			});
 		}
 
-		console.log(roleToAddOrRemove);
-		console.log(member.roles.cache.get(roleId));
+		console.log('Role to add or remove: ' + roleToAddOrRemove);
+		console.log('Role found: ' + member.roles.cache.get(roleId));
 
 		const memberRole = member.roles.cache.get(roleId);
 

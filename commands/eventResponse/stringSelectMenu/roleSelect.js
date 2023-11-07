@@ -8,7 +8,6 @@ module.exports = {
 
 		const member = interaction.member;
 
-		console.log(member.roles.cache.each(role => console.log(role)));
 		console.log(member.roles.cache.get(roleId));
 
 		if (interaction.replied || interaction.deferred) {
